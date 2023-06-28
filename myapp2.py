@@ -3,7 +3,6 @@ from PIL import Image
 import base64
 import pandas as pd
 import pickle
-from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 from clf import predict
 
