@@ -97,8 +97,8 @@ with st.container():
     st.write('--')
     st.header('This is the Resnet 101 architecture')
     image_column, text_column = st.columns((2,1))
-    with image_column:
-       st.image(img_2)
+    # with image_column:
+    #    st.image(img_2)
 
     st.header('Cat classication')
     st.write('##')
