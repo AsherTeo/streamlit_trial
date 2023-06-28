@@ -29,7 +29,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-local_css("C:/Users/Lim Fong/Documents/streamlit/style/style.css")
+local_css("./style/style.css")
 
 st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
@@ -75,13 +75,11 @@ st.markdown(
 
 #add_bg_from_local('C:/Users/User/Desktop/streamlit/blueprint.jpg')  
 
-img_1 = Image.open('C:/Users/Lim Fong/Documents/streamlit/cat1.jpg')
-img_2 = Image.open('C:/Users/Lim Fong/Documents/streamlit/network1.PNG')
+# img_1 = Image.open('./cat1.jpg')
 
-img_1 = img_1.resize((600,300))
-img_2 = img_2.resize((600,300))
+# img_1 = img_1.resize((600,300))
 
-gif_1 = open("C:/Users/Lim Fong/Documents/streamlit/cat.gif", "rb")
+gif_1 = open("./cat.gif", "rb")
 contents = gif_1.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 gif_1.close()
@@ -142,66 +140,6 @@ with st.container():
     with right_column:
         st.empty()
 
-# st.sidebar.markdown("""
-# [Example CSV input file](https://raw.githubusercontent.com/dataprofessor/data/master/penguins_example.csv)
-# """)
 
-# uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
-# if uploaded_file is not None:
-#     input_df = pd.read_csv(uploaded_file)
-# else:
-#     def user_input_features():
-#         island = st.sidebar.selectbox('Island',('Biscoe','Dream','Torgersen'))
-#         sex = st.sidebar.selectbox('Sex',('male','female'))
-#         bill_length_mm = st.sidebar.slider('Bill length (mm)', 32.1,59.6,43.9)
-#         bill_depth_mm = st.sidebar.slider('Bill depth (mm)', 13.1,21.5,17.2)
-#         flipper_length_mm = st.sidebar.slider('Flipper length (mm)', 172.0,231.0,201.0)
-#         body_mass_g = st.sidebar.slider('Body mass (g)', 2700.0,6300.0,4207.0)
-#         data = {'island': island,
-#                 'bill_length_mm': bill_length_mm,
-#                 'bill_depth_mm': bill_depth_mm,
-#                 'flipper_length_mm': flipper_length_mm,
-#                 'body_mass_g': body_mass_g,
-#                 'sex': sex}
-#         features = pd.DataFrame(data, index=[0])
-#         return features
-#     input_df = user_input_features()
-
-# penguins_raw = pd.read_csv('penguins_cleaned.csv')
-# penguins = penguins_raw.drop(columns=['species'])
-# df = pd.concat([input_df,penguins],axis=0)
-
-# # Encoding of ordinal features
-# # https://www.kaggle.com/pratik1120/penguin-dataset-eda-classification-and-clustering
-# encode = ['sex','island']
-# for col in encode:
-#     dummy = pd.get_dummies(df[col], prefix=col)
-#     df = pd.concat([df,dummy], axis=1)
-#     del df[col]
-# df = df[:1] # Selects only the first row (the user input data)
-
-# # Displays the user input features
-# st.subheader('User Input features')
-
-# if uploaded_file is not None:
-#     st.write(df)
-# else:
-#     st.write('Awaiting CSV file to be uploaded. Currently using example input parameters (shown below).')
-#     st.write(df)
-
-# # Reads in saved classification model
-# load_clf = pickle.load(open('penguins_clf.pkl', 'rb'))
-
-# # Apply model to make predictions
-# prediction = load_clf.predict(df)
-# prediction_proba = load_clf.predict_proba(df)
-
-
-# st.subheader('Prediction')
-# penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])
-# st.write(penguins_species[prediction])
-
-# st.subheader('Prediction Probability')
-# st.write(prediction_proba)
 
     
